@@ -28,29 +28,35 @@
                     </div>
                 </div>
                 <div class="booking-form">
-                    <form>
+                    <form [formGroup]="bookingForm" (ngSubmit)="onSubmit(bookingForm)">
                         <div class="form-group">
                             <label>User name: </label>
-                            <input type="text" class="form-control" placeholder="User name">
+                            <input type="text" class="form-control" formControlName="user_name" placeholder="User name">
                         </div>
                         <div class="form-group">
                             <label>Date: </label>
-                            <input type="date" class="form-control" min="{{minDate |date:'yyyy-MM-dd'}}">
+                            <input type="date" class="form-control" formControlName="date" 
+                                    min="{{minDate |date:'yyyy-MM-dd'}}">
                         </div>
                         <div class="form-group">
                             <label>Time Duration: </label>
                             <div class="time-duration">
                                 <div>
                                    <span class="label-small"> Form:</span>
-                                    <select name="duration" class="form-control" #fromTime (change)="fromTimeSelect()">
-                                        <option *ngFor="let time of fromTimeSpan" value="{{time}}">{{time | number: '1.2-2'}}</option>
+                                    <select formControlName="from_time" class="form-control">
+                                        <option *ngFor="let time of fromTimeSpan" value="{{time.value | number: '1.2-2'}}">
+                                            {{time.name}}
+                                        </option>
                                     </select>
                                 </div>
                                 <div>
                                     <span class="label-small"> To:</span>
-                                    <select name="duration" class="form-control"  #toTime [disabled]="isToTimeDisable">
+                                    <select class="form-control" formControlName="to_time">
                                         <ng-container *ngFor="let time of toTimeSpam" >
-                                            <option [disabled]="(fromTime.value >= time ? true : false)" value="{{time}}">{{time | number: '1.2-2'}}</option>
+                                            <option [disabled]="(bookingForm.controls.from_time.value >= time.value ? true : false)" 
+                                                value="{{time.value | number: '1.2-2'}}">
+                                                {{time.name}}
+                                            </option>
                                         </ng-container>
                                     </select>
                                 </div>
@@ -58,17 +64,17 @@
                         </div>
                         <div class="form-group">
                             <label>Agenda: </label>
-                            <textarea class="form-control" placeholder="Meeting Agenda"></textarea>
+                            <textarea class="form-control" formControlName="agenda"  placeholder="Meeting Agenda"></textarea>
+                        </div>
+                        <div class="footer-btn">
+                            <button class="btn" (click)="closeModal()">Cancel</button>
+                             <button class="btn btn-secondary" [disabled]="!bookingForm.valid" type="submit" >Confirm</button>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
         <div class="modal-footer">
-            <div class="footer-btn">
-                <button class="btn" (click)="closeModal()">Cancel</button>
-                 <button class="btn btn-primary" (click)="confirmBook()">Book</button>
-            </div>
         </div>
     </div>
 </div>

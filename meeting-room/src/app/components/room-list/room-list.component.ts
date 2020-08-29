@@ -87,7 +87,10 @@ roomBookingInfo :room_details;
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.roomsList)
+  }
+
+  // booking details
+  bookingDetails(res){
   }
 
   // to book a room

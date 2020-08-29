@@ -20,7 +20,7 @@
                     <span class="active"> {{ room.room_status }}</span>
                 </div>
                 <div class="room-config">
-                    <button class="btn">Details</button>
+                    <button class="btn" (click)="bookingDetails(room)">Details</button>
                     <button class="btn btn-primary" (click)="roomBooking(room)">Book</button>
                 </div>
             </div>
