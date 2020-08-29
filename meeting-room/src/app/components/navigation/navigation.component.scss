@@ -1,0 +1,25 @@
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation-header{
+    .nav{  
+        display: flex;
+        flex-flow: row nowrap;
+        background-color: #FFFFFF;
+        padding: 8px 16px;
+        box-shadow: 0 0 5px grey;
+        -webkit-box-shadow: 0 0 5px grey;
+    }
+
+    .navbar-brand{
+        font-size: 20px;
+        font-weight: 700;
+        padding: 10px;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}

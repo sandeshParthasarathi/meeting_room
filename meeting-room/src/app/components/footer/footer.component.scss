@@ -1,0 +1,39 @@
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer{
+    .footer-main{
+        display: inline-grid;
+        grid-template-columns: auto auto;
+        width: 100%;
+        font-size: 16px;
+        background: #1E1E30;
+        color: #6C757D;
+
+        .copy-right{
+            @include flexCenter();
+            padding: 10px;
+            
+            a{
+                text-decoration: none;
+                font-weight: bold;
+                color: #6C757D;
+                margin: 0px 4px
+            }
+        }
+
+        .social-media{
+            @include flexCenter();
+            padding: 10px;
+
+            .media-icon{
+                margin: 10px;
+                cursor: pointer;
+                text-decoration: none;
+            }
+        }
+    }
+}

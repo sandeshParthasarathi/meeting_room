@@ -1,0 +1,29 @@
+<section class="room-lists">
+    <div class="room-wrapper">
+        <div class="room-block" *ngFor="let room of roomsList">
+            <div class="room-image">
+                <img class="img-responsive" src="../../../assets/images/roomImage.jpg" alt="img">
+            </div>
+            <!-- *ngFor="let room of room_details" -->
+            <div class="room-details">
+                <div class="room-name">
+                    {{room.room_name}}
+                </div>
+                <div class="room-seater">
+                   <div class="details-header">Location:</div> <span> {{ room.room_location }}</span>
+                </div>
+                <div class="room-seater">
+                    <div class="details-header">No of seats:</div> <span> {{ room.room_capacity }}</span>
+                </div>
+                <div class="room-seater room-status">
+                    <div class="details-header">Status:</div>
+                    <span class="active"> {{ room.room_status }}</span>
+                </div>
+                <div class="room-config">
+                    <button class="btn">Details</button>
+                    <button class="btn btn-primary">Book</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
