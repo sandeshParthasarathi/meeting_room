@@ -10,6 +10,8 @@ import { ScheduleDetailsComponent } from './components/schedule-details/schedule
 import { MainComponent } from './components/main/main.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ActionBarComponent } from './components/action-bar/action-bar.component';
+import { SearchPipe } from './pipe/search.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { FooterComponent } from './components/footer/footer.component';
     ScheduleDetailsComponent,
     MainComponent,
     NavigationComponent,
-    FooterComponent
+    FooterComponent,
+    ActionBarComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,

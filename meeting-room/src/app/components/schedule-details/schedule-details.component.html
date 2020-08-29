@@ -11,7 +11,7 @@
         <div class="modal-body">
             <div class="manage-body">
                 <ng-container *ngIf="roomBookingInfo.booking_details.length > 0; else noScheduledData">
-                    <div class="meeting-widget" *ngFor="let widget of roomBookingInfo.booking_details">
+                    <div class="meeting-widget" *ngFor="let widget of roomBookingInfo.booking_details; index as i">
                         <div class="widget-body">
                             <div class="widget-left">
                                 <div class="room-seater">
@@ -30,13 +30,13 @@
                             <div class="widget-middle">
                                 <div class="agenda-seater">
                                     <div class="details-header">Meeting Agenda:</div> 
-                                    <span> {{ widget.agenda }} to {{ widget.agenda}}</span>
+                                    <span> {{ widget.agenda }}</span>
                                  </div>
                             </div>
                             <div class="widget-action">
                                 <div class="action-seater">
                                     <div class="actions-list">
-                                        <button class="btn btn-warnig" (click)="deleteMeeting(widget)">Delete</button>
+                                        <button class="btn btn-warnig" (click)="deleteMeeting(widget, i)">Delete</button>
                                     </div>
                                 </div>
                             </div>

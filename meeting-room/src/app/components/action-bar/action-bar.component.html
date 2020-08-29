@@ -1,0 +1,17 @@
+<div class="action-bar">
+    <div class="action-headers">
+        <h2>Welcome to meeting room booking system!!</h2>
+    </div>
+    <div class="action-tools">
+        <div class="form-group filter-room">
+            <input type="text" class="form-control" [(ngModel)]="search_filter" 
+            (keyup)="filterRoom(search_filter)" placeholder="Search the room">
+            <span class="close-icon">
+                <img class="clear-text" (click)="clearText(search_filter)" src=".././../../assets/images/formModelCloseIcon.svg">
+            </span>
+        </div>
+        <div class="form-group">
+            <input type="date" class="form-control" defaultValue="{{todayDate | date :'dd-MM-yyyy'}}" [(ngModel)]="todayDate" min="{{minDate |date:'yyyy-MM-dd'}}">
+        </div>
+    </div>
+</div>

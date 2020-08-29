@@ -27,8 +27,10 @@ export class ScheduleDetailsComponent implements OnInit {
     this.details_dialogChange.emit(false);
   }
 
-  deleteMeeting(res){
-    console.log(res)
+  // to delete the meeting
+  deleteMeeting(res, i){
+    // since we don't have unique ID's for meeting i'm using index to remove the meeting
+    this.roomBookingInfo.booking_details.splice(i, 1)
   }
 
 }

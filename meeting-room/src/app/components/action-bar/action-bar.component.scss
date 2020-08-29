@@ -1,0 +1,42 @@
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-bar{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px 0px 30px;
+
+    .action-headers{
+        h2{
+            margin: 0px
+        }
+    }
+
+    .action-tools{
+        @include flexCenter();
+
+        .form-group{
+            margin-right: 20px;
+        }
+
+        .filter-room{
+            position: relative;
+            width: 200px;
+
+            .close-icon{
+                position: absolute;
+                right: 10px;
+                top: 8px;
+                height: 10px;
+                cursor: pointer;
+
+                .clear-text{
+                    height: 10px;
+                }
+            }
+        }
+    }
+}

@@ -84,10 +84,16 @@ export class RoomListComponent implements OnInit {
 display_dialog: boolean = false;
 details_dialog: boolean = false;
 roomBookingInfo :room_details;
+searchFilterValue: string;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  // catch the event from search field
+  searchedText(data){
+    this.searchFilterValue = data
   }
 
   // booking details
@@ -101,5 +107,6 @@ roomBookingInfo :room_details;
     this.roomBookingInfo = res;
     this.display_dialog = true;
   }
+
 
 }

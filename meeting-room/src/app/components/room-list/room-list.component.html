@@ -1,13 +1,17 @@
 <section class="room-lists">
+    <!-- Action Bar -->
+    <app-action-bar (searchedText)="searchedText($event)"></app-action-bar>
+
+    <!-- Booking room list -->
     <div class="room-wrapper">
-        <div class="room-block" *ngFor="let room of roomsList">
+        <div class="room-block" *ngFor="let room of roomsList | search : searchFilterValue">
             <div class="room-image">
                 <img class="img-responsive" src="../../../assets/images/roomImage.jpg" alt="img">
             </div>
             <!-- *ngFor="let room of room_details" -->
             <div class="room-details">
                 <div class="room-name">
-                    {{room.room_name}}
+                    {{room.room_name }}
                 </div>
                 <div class="room-seater">
                    <div class="details-header">Location:</div> <span> {{ room.room_location }}</span>
@@ -28,5 +32,8 @@
     </div>
 </section>
 
+<!-- Manage meeting -->
 <app-schedule-details [(details_dialog)]="details_dialog" [roomBookingInfo]="roomBookingInfo"></app-schedule-details>
+
+<!-- meeting room boooking -->
 <app-room-booking [(display_dialog)]="display_dialog" [roomBookingInfo]="roomBookingInfo"></app-room-booking>
