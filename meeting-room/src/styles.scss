@@ -50,6 +50,11 @@ button:active{
   color: #FFFFFF;
 }
 
+.btn-warnig{
+  background-color: #E8511D;
+  color: #000000;
+}
+
 
 // Customised Scroll bar
 
@@ -120,18 +125,18 @@ button:active{
       }
 
       .modal-body{
-        padding: 15px 10px;
+        padding: 10px;
       }
 
       .modal-footer{
-        padding: 15px 10px;
+        padding: 10px;
       }
 
     }
 }
 
 
-// custom form fields
+// custom form fields:
 //cloned from bootstrap
 
 label{

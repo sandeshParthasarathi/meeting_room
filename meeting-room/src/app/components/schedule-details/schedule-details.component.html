@@ -1,1 +1,60 @@
-<p>schedule-details works!</p>
+<div *ngIf="details_dialog" class="dialog-modal">
+    <div class="modal-section manage-meeting">
+        <div class="modal-header">
+           <div class="header">
+                <span class="custom-header">Manage meeting : </span>{{ roomBookingInfo.room_name}}
+           </div>
+           <div class="close-icon">
+                <img class="close-modal" (click)="closeModal()" src=".././../../assets/images/formModelCloseIcon.svg">
+           </div>
+        </div>
+        <div class="modal-body">
+            <div class="manage-body">
+                <ng-container *ngIf="roomBookingInfo.booking_details.length > 0; else noScheduledData">
+                    <div class="meeting-widget" *ngFor="let widget of roomBookingInfo.booking_details">
+                        <div class="widget-body">
+                            <div class="widget-left">
+                                <div class="room-seater">
+                                    <div class="details-header">User :</div> 
+                                    <span> {{ widget.user_name }}</span>
+                                 </div>
+                                 <div class="room-seater">
+                                    <div class="details-header">Meeting Date:</div> 
+                                    <span> {{ widget.date }}</span>
+                                 </div>
+                                 <div class="room-seater">
+                                    <div class="details-header">Meeting Duration:</div> 
+                                    <span> {{ widget.from_time }} to {{ widget.to_time}}</span>
+                                 </div>
+                            </div>
+                            <div class="widget-middle">
+                                <div class="agenda-seater">
+                                    <div class="details-header">Meeting Agenda:</div> 
+                                    <span> {{ widget.agenda }} to {{ widget.agenda}}</span>
+                                 </div>
+                            </div>
+                            <div class="widget-action">
+                                <div class="action-seater">
+                                    <div class="actions-list">
+                                        <button class="btn btn-warnig" (click)="deleteMeeting(widget)">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="footer-btn">
+                <button class="btn" (click)="closeModal()">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #noScheduledData>
+    <div class="no-data">
+        No meetings are scheduled for this room
+    </div>
+</ng-template>

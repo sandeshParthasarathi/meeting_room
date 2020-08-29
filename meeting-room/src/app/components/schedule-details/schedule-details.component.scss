@@ -1,0 +1,104 @@
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.manage-meeting{
+    width: 750px !important;
+
+    .modal-header{
+        .custom-header{
+            color: #000000;
+        }
+    } 
+    
+    .modal-body{
+
+        .meeting-widget{
+            align-items: center;
+            margin: 20px 0px;
+            padding: 15px 10px;
+            box-sizing: border-box;
+            background: #FFFFFF;
+            border-left: 4px solid #636496D4;
+            border-radius: 5px;
+            box-shadow: 0 0 2px grey;
+
+            .widget-body{
+                display: grid;
+                grid-template-columns: 30% auto 20%;
+
+                .widget-left{
+
+                    .room-seater{
+                        display: flex;
+                        color: #7b858c;
+                        line-height: 18px;  
+    
+                        .details-header{
+                            width: 100px;
+                            font-weight: 600;
+                        }
+                            
+                        span{
+                            color: #1E1E30;
+                        }
+                    }
+                }
+
+                .widget-middle{
+                    color: #7b858c;
+                    line-height: 18px;
+
+                    .agenda-seater{
+
+                        .details-header{
+                            width: 100px;
+                            font-weight: 600;
+                        }
+                            
+                        span {
+                            color: #1E1E30;
+                        }
+                    }
+                }
+
+                .widget-action{
+                    @include flexCenter();
+                    color: #7b858c;
+                    line-height: 18px;
+                    
+
+                    .action-seater{
+                        .actions-list{
+                            @include flexCenter();
+                        }
+                    }
+                }
+
+            }
+         }
+    }
+
+    .modal-footer{
+        .footer-btn{
+            @include flexCenter();
+            justify-content: flex-end;
+      
+            button{
+              margin: 0px 10px;
+            }
+          }
+    }
+}
+
+.no-data{
+    @include flexCenter();
+    font-size: 14px;
+    height: 100px;
+}
+
+.meeting-widget:hover{
+    box-shadow: 0 0 5px grey !important;
+}

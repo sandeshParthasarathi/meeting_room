@@ -82,6 +82,7 @@ export class RoomListComponent implements OnInit {
 ] ;
 
 display_dialog: boolean = false;
+details_dialog: boolean = false;
 roomBookingInfo :room_details;
 
   constructor() { }
@@ -91,11 +92,13 @@ roomBookingInfo :room_details;
 
   // booking details
   bookingDetails(res){
+    this.roomBookingInfo = res;
+    this.details_dialog = true;
   }
 
   // to book a room
-  roomBooking(ele){
-    this.roomBookingInfo = ele;
+  roomBooking(res){
+    this.roomBookingInfo = res;
     this.display_dialog = true;
   }
 
