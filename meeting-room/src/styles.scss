@@ -6,6 +6,7 @@
 body{
     padding: 0px;
     margin: 0px;
+    font-size: 12px;
     background: #f8f9fa;
     font-family: 'Roboto', sans-serif;
 }
@@ -23,7 +24,7 @@ button{
     vertical-align: baseline;
     text-align: center;
     min-width: 64px;
-    line-height: 30px;
+    line-height: 22px;
     padding: 0 16px;
     border-radius: 4px;
     transform: translate3d(0, 0, 0);
@@ -37,4 +38,112 @@ button:active{
 .btn-primary{
     background-color: #19659D;
     color: #FFFFFF;
+}
+
+
+// Customised Scroll bar
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #19659D;
+    border-radius: 4px;
+  }
+
+
+  // custom dialog modal
+
+  .dialog-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100% !important;
+    height: 100vh !important;
+    z-index: 6;
+    background: #9e9e9e7a;
+    position: fixed;
+    top: 0;
+    left: 0px;
+
+    .modal-section{
+      width: 600px;
+      max-height: 70vh;
+      overflow-y: auto;
+      background: #FFFFFF;
+
+      .modal-header{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 10px;
+        color: #19659D;
+        font-size: 14px;
+        font-weight: 600;
+        box-shadow: 0 0 2px grey;
+        -webkit-box-shadow: 0 0 2px grey;
+      
+        .close-icon{
+          img {
+            height: 12px;
+            cursor: pointer;
+            margin-right: 10px;
+          }
+        }
+
+      }
+
+      .modal-body{
+        padding: 15px 10px;
+      }
+
+      .modal-footer{
+        padding: 15px 10px;
+      }
+
+    }
+}
+
+
+// custom form fields
+//cloned from bootstrap
+
+label{
+  font-size: 14px;
+  margin: 0px 1px 5px 0px;
+  display: block;
+}
+
+.form-control{ 
+  display: block;
+  width: 100%;
+  padding: 5px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+option:disabled {
+  background: #d3d3d361;
 }

@@ -81,10 +81,19 @@ export class RoomListComponent implements OnInit {
     }
 ] ;
 
+display_dialog: boolean = false;
+roomBookingInfo :room_details;
+
   constructor() { }
 
   ngOnInit(): void {
     console.log(this.roomsList)
+  }
+
+  // to book a room
+  roomBooking(ele){
+    this.roomBookingInfo = ele;
+    this.display_dialog = true;
   }
 
 }

@@ -21,9 +21,11 @@
                 </div>
                 <div class="room-config">
                     <button class="btn">Details</button>
-                    <button class="btn btn-primary">Book</button>
+                    <button class="btn btn-primary" (click)="roomBooking(room)">Book</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+<app-room-booking [(display_dialog)]="display_dialog" [roomBookingInfo]="roomBookingInfo"></app-room-booking>

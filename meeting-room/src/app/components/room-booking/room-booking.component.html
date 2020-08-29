@@ -1,1 +1,74 @@
-<p>room-booking works!</p>
+<div *ngIf="display_dialog" class="dialog-modal">
+    <div class="modal-section booking-section">
+        <div class="modal-header">
+           <div class="header">
+                Book {{roomBookingInfo.room_name}}
+           </div>
+           <div class="close-icon">
+                <img class="close-modal" (click)="closeModal()" src=".././../../assets/images/formModelCloseIcon.svg">
+           </div>
+        </div>
+        <div class="modal-body">
+            <div class="booking-body">
+                <div class="booking-room-details">
+                    <div class="room-image">
+                        <img class="img-responsive" src="../../../assets/images/roomImage.jpg" alt="img">
+                    </div>
+                    <div class="room-details">
+                        <div class="room-seater">
+                            <div class="details-header">Location:</div> <span> {{ roomBookingInfo.room_location }}</span>
+                         </div>
+                         <div class="room-seater">
+                             <div class="details-header">No of seats:</div> <span> {{ roomBookingInfo.room_capacity }}</span>
+                         </div>
+                         <div class="room-seater room-status">
+                             <div class="details-header">Status:</div>
+                             <span class="active"> {{ roomBookingInfo.room_status }}</span>
+                         </div>
+                    </div>
+                </div>
+                <div class="booking-form">
+                    <form>
+                        <div class="form-group">
+                            <label>User name: </label>
+                            <input type="text" class="form-control" placeholder="User name">
+                        </div>
+                        <div class="form-group">
+                            <label>Date: </label>
+                            <input type="date" class="form-control" min="{{minDate |date:'yyyy-MM-dd'}}">
+                        </div>
+                        <div class="form-group">
+                            <label>Time Duration: </label>
+                            <div class="time-duration">
+                                <div>
+                                   <span class="label-small"> Form:</span>
+                                    <select name="duration" class="form-control" #fromTime (change)="fromTimeSelect()">
+                                        <option *ngFor="let time of fromTimeSpan" value="{{time}}">{{time | number: '1.2-2'}}</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <span class="label-small"> To:</span>
+                                    <select name="duration" class="form-control"  #toTime [disabled]="isToTimeDisable">
+                                        <ng-container *ngFor="let time of toTimeSpam" >
+                                            <option [disabled]="(fromTime.value >= time ? true : false)" value="{{time}}">{{time | number: '1.2-2'}}</option>
+                                        </ng-container>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Agenda: </label>
+                            <textarea class="form-control" placeholder="Meeting Agenda"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <div class="footer-btn">
+                <button class="btn" (click)="closeModal()">Cancel</button>
+                 <button class="btn btn-primary" (click)="confirmBook()">Book</button>
+            </div>
+        </div>
+    </div>
+</div>
