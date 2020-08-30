@@ -70,7 +70,10 @@
                         <div class="form-group">
                             <label>Date: </label>
                             <input type="date" class="form-control" formControlName="date" (change)="filterDateSchedule()"
-                                    min="{{minDate |date:'yyyy-MM-dd'}}" value={{selectedData}}>
+                                    min="{{minDate |date:'yyyy-MM-dd'}}">
+                            <div *ngIf="weekendFlag" class="error-message">
+                                Sat/Sun are invalid
+                            </div>      
                         </div>
                         <div class="form-group">
                             <label>Time Duration: </label>
@@ -101,7 +104,8 @@
                         </div>
                         <div class="footer-btn">
                             <button class="btn" (click)="closeModal()">Cancel</button>
-                            <button class="btn btn-secondary" [disabled]="!bookingForm.valid || formInvalid || bookingdetails.length> 0" type="submit" >Confirm</button>
+                            <button class="btn btn-secondary" type="submit" 
+                                    [disabled]="!bookingForm.valid || formInvalid || bookingdetails.length> 0 || weekendFlag">Confirm</button>
                         </div>
                     </form>
                 </div>

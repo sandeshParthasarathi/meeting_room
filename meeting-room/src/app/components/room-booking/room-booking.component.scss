@@ -4,15 +4,19 @@
   align-items: center;
 }
 
+@mixin error-message{
+    color: #E8511D ; 
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 20px;
+}
+
 .booking-section{
    width: 850px;
 
    .modal-header{
      .error-message{
-      color: #E8511D ; 
-      font-size: 12px;
-      font-weight: 600;
-      margin-right: 20px;
+        @include error-message();
      }
    }
 
@@ -154,6 +158,12 @@
 
         .form-group{
           margin: 10px 0px;
+
+          .error-message{
+            @include error-message();
+            font-size: 10px;
+            margin: 5px 2px 0px 2px;
+          }
 
           .time-duration{
             display: grid;

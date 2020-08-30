@@ -34,13 +34,13 @@ export class RoomBookingComponent implements OnInit {
   fromTimeSpan = FROM_TIME;
   toTimeSpam = TO_TIME;
   isinValid: boolean = true;
-  selectedData: string; //yyyy-MM-dd
   formInvalid: boolean = true;
   flagMessage: boolean = false;
   filteredMeeting: any;
   filteredBookedMeeting: any = [];
   bookingdetails: any = [];
-  stausMessage: string = '- -'
+  stausMessage: string = '- -';
+  weekendFlag: boolean = false;
 
   ngOnInit(): void {
     this.disableDate();
@@ -143,7 +143,13 @@ export class RoomBookingComponent implements OnInit {
 
   // filter the schedule based on selected date
   filterDateSchedule(){
+    this.weekendFlag = false;
     let selectedDate = this.bookingForm.controls.date.value;
+    let day = new Date(selectedDate).toUTCString();
+    if(day.includes('Sat') || day.includes('Sun')){
+      this.weekendFlag = true;
+    }
+    console.log(day)
     this.filteredMeeting = this.roomBookingInfo.booking_details.filter((meeting) => meeting.date == selectedDate);
     this.statusCheck();
     this.validateTimeDuration();
