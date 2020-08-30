@@ -10,42 +10,44 @@ export class RoomListComponent implements OnInit {
 
   // mock-data
 public roomsList: room_details[] = [
-  { 
+  {
     room_id: "1A",
     room_name: "Room 1A",
     room_location: "1st Floor",
     room_capacity: 3,
     room_status: null,
-    booking_details: [
-      {
-        agenda: "Sandesh test",
-        date: "2020-08-31",
-        from_time: "11.00",
-        to_time: "13.00",
-        user_name: "Sandesh"
-      },
-      {
-        agenda: "test 2",
-        date: "2020-08-31",
-        from_time: "9.00",
-        to_time: "10.00",
-        user_name: "sandesh 2"
-      },{
-        agenda: "daddc",
-        date: "2020-08-31",
-        from_time: "15.30",
-        to_time: "16.00",
-        user_name: "Sandesh 3"
-      },
-      {
-        agenda: "test 4",
-        date: "2020-09-01",
-        from_time: "9.30",
-        to_time: "13.00",
-        user_name: "Sandesh"
-      }
+    booking_details:[
+       {
+
+          agenda: "Daily stand-up",
+          date: "2020-09-04",
+          from_time: "11.00",
+          to_time: "13.00",
+          user_name: "user 1"
+       },
+       {
+          agenda: "sprint planning",
+          date: "2020-09-04",
+          from_time: "9.00",
+          to_time: "10.00",
+          user_name: "user 1"
+       },
+       {
+          agenda: "demo",
+          date: "2020-09-04",
+          from_time: "15.30",
+          to_time: "16.00",
+          user_name: "user 1"
+       },
+       {
+          agenda: "Stand up and Sprint Plan(Team BlackPanther)",
+          date: "2020-09-03",
+          from_time: "9.30",
+          to_time: "13.00",
+          user_name: "user 2"
+       }
     ]
-  },
+ },
   {
     room_id: "1B",
     room_name: "Room 1B",
