@@ -5,6 +5,9 @@
                 Book {{roomBookingInfo.room_name}}
            </div>
            <div class="close-icon">
+                <span *ngIf="flagMessage" class="error-message">
+                    Select the valid time duaration
+                </span>
                 <img class="close-modal" (click)="closeModal()" src=".././../../assets/images/formModelCloseIcon.svg">
            </div>
         </div>

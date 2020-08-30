@@ -36,6 +36,7 @@ export class RoomBookingComponent implements OnInit {
   isinValid: boolean = true;
   selectedData: string; //yyyy-MM-dd
   formInvalid: boolean = true;
+  flagMessage: boolean = false;
   filteredMeeting: any;
   filteredBookedMeeting: any = [];
   bookingdetails: any = [];
@@ -64,17 +65,42 @@ export class RoomBookingComponent implements OnInit {
 
  //validate from and to time
   validateTimeDuration(){
-    let currentDate = new Date();
     let fromTime = this.bookingForm.controls.from_time.value;
     let toTime = this.bookingForm.controls.to_time.value;
     if( fromTime == "0.00" || toTime == "0.00" || fromTime == null  || toTime == null || 
         Number(fromTime) >= Number(toTime)){
           this.formInvalid = true;
+          this.flagMessage = true;
     }
     else if( fromTime !== "0.00" && toTime !== "0.00" && fromTime !== null  && toTime !== null &&
           Number(fromTime) <= Number(toTime)){
           this.formInvalid = false;
+          this.flagMessage = false;
+          this.timePassed(Number(fromTime));
     }
+  }
+
+//throw error if user select the passed time
+  timePassed(fromTime){
+    let selectedDate = this.bookingForm.controls.date.value;
+    let shortDate: any;
+      let currentDate: any = new Date(),
+          month = '' + (currentDate.getMonth() + 1),
+          day = '' + currentDate.getDate(),
+          year = currentDate.getFullYear();
+
+      if (month.length < 2) 
+          month = '0' + month;
+      if (day.length < 2) 
+          day = '0' + day;
+
+          shortDate =  [year, month, day].join('-');
+      let hour = (currentDate.getHours() + (currentDate.getMinutes()/100)).toFixed(2);
+
+      if(selectedDate === shortDate && (fromTime < hour)){
+        this.formInvalid = true;
+        this.flagMessage = true;
+      }
   }
 
   statusCheck(){
@@ -120,12 +146,11 @@ export class RoomBookingComponent implements OnInit {
     let selectedDate = this.bookingForm.controls.date.value;
     this.filteredMeeting = this.roomBookingInfo.booking_details.filter((meeting) => meeting.date == selectedDate);
     this.statusCheck();
+    this.validateTimeDuration();
   }
 
 //on submit the booking form
   onSubmit(form: FormGroup){
-    //todo: validate time-slot by using timestamp
-
     if(!this.formInvalid){
       form.value.from_time = Number(form.value.from_time).toFixed(2);
       form.value.to_time = Number(form.value.to_time).toFixed(2);

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { RoutingModule } from './routing.module';
 
 import { AppComponent } from './app.component';
 import { RoomListComponent } from './components/room-list/room-list.component';
@@ -28,7 +29,8 @@ import { SearchPipe } from './pipe/search.pipe';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
