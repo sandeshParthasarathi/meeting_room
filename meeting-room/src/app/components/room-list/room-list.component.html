@@ -6,7 +6,7 @@
     <div class="room-wrapper">
         <div class="room-block" *ngFor="let room of roomsList | search : searchFilterValue">
             <div class="room-image">
-                <img class="img-responsive" src="../../../assets/images/roomImage.jpg" alt="img">
+                <img class="img-responsive" src='{{ "../../../assets/images//meetin-rooms/" + room.room_id + "-min.jpg" }}' alt="img">
             </div>
             <!-- *ngFor="let room of room_details" -->
             <div class="room-details">

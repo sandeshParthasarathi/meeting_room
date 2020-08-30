@@ -1,0 +1,1 @@
+export const MEETING_ROOM = 'meeting-room';

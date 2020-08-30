@@ -28,7 +28,7 @@
                              </div>
                         </div>
                         <div class="room-image">
-                            <img class="img-responsive" src="../../../assets/images/roomImage.jpg" alt="img">
+                            <img class="img-responsive" src='{{ "../../../assets/images//meetin-rooms/" + roomBookingInfo.room_id + "-min.jpg" }}' alt="img">
                         </div>
                     </div>
                     <div class="time-slots" *ngIf="bookingdetails.length > 0">

@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './components/main/main.component';
+import { MEETING_ROOM } from './constants/route_constants';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'meeting-room', pathMatch: 'full' },
-    { path: 'meeting-room', component:  MainComponent},
-    { path: '**', redirectTo: 'meeting-room', pathMatch: 'full' }
+    { path: '', redirectTo: MEETING_ROOM, pathMatch: 'full' },
+    { path: MEETING_ROOM, component:  MainComponent},
+    { path: '**', redirectTo: MEETING_ROOM, pathMatch: 'full' }
 ];
 
 @NgModule({

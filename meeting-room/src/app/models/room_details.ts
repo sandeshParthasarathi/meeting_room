@@ -11,6 +11,6 @@ export interface Booking_details{
     user_name: string,
     booking_date: string,
     booking_duration: string,
-    agenda: string,
+    agenda?: string,
     room_name: string
 }
