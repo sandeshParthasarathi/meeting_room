@@ -1,6 +1,6 @@
 <section class="room-lists">
     <!-- Action Bar -->
-    <app-action-bar (searchedText)="searchedText($event)"></app-action-bar>
+    <app-action-bar (searchedText)="searchedText($event)" (selectedDateValue)="filterBydate($event)"></app-action-bar>
 
     <!-- Booking room list -->
     <div class="room-wrapper">

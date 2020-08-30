@@ -23,8 +23,11 @@
                          </div>
                          <div class="room-seater room-status">
                              <div class="details-header">Status:</div>
-                             <span class="active"> {{ roomBookingInfo.room_status }}</span>
+                             <span class="warning" [ngClass]="{'active': stausMessage === 'Available'}"> {{ stausMessage }}</span>
                          </div>
+                    </div>
+                    <div class="time-slots">
+
                     </div>
                 </div>
                 <div class="booking-form">
@@ -35,15 +38,15 @@
                         </div>
                         <div class="form-group">
                             <label>Date: </label>
-                            <input type="date" class="form-control" formControlName="date" 
-                                    min="{{minDate |date:'yyyy-MM-dd'}}">
+                            <input type="date" class="form-control" formControlName="date" (change)="filterDateSchedule()"
+                                    min="{{minDate |date:'yyyy-MM-dd'}}" value={{selectedData}}>
                         </div>
                         <div class="form-group">
                             <label>Time Duration: </label>
                             <div class="time-duration">
                                 <div>
                                    <span class="label-small"> Form:</span>
-                                    <select formControlName="from_time" class="form-control">
+                                    <select formControlName="from_time" class="form-control" (change)="validateTimeDuration(); statusCheck()">
                                         <option *ngFor="let time of fromTimeSpan" value="{{time.value | number: '1.2-2'}}">
                                             {{time.name}}
                                         </option>
@@ -51,10 +54,9 @@
                                 </div>
                                 <div>
                                     <span class="label-small"> To:</span>
-                                    <select class="form-control" formControlName="to_time">
+                                    <select class="form-control" formControlName="to_time" (change)="validateTimeDuration(); statusCheck()">
                                         <ng-container *ngFor="let time of toTimeSpam" >
-                                            <option [disabled]="(bookingForm.controls.from_time.value >= time.value ? true : false)" 
-                                                value="{{time.value | number: '1.2-2'}}">
+                                            <option value="{{time.value | number: '1.2-2'}}">
                                                 {{time.name}}
                                             </option>
                                         </ng-container>
@@ -68,7 +70,7 @@
                         </div>
                         <div class="footer-btn">
                             <button class="btn" (click)="closeModal()">Cancel</button>
-                            <button class="btn btn-secondary" [disabled]="!bookingForm.valid" type="submit" >Confirm</button>
+                            <button class="btn btn-secondary" [disabled]="!bookingForm.valid || formInvalid || bookingdetails.length> 0" type="submit" >Confirm</button>
                         </div>
                     </form>
                 </div>

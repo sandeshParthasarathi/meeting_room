@@ -12,6 +12,9 @@ export class ActionBarComponent implements OnInit {
   @Output()
   public searchedText = new EventEmitter<string>();
 
+  @Output()
+  public selectedDateValue = new EventEmitter<string>();
+
   search_filter: string;
   minDate: Date = new Date();
   todayDate: Date = new Date();
@@ -28,6 +31,11 @@ export class ActionBarComponent implements OnInit {
   clearText(res){
     this.search_filter = '';
     this.searchedText.emit(this.search_filter);
+  }
+
+  //selected calender date
+  selectedDate(res){
+    this.selectedDateValue.emit(res);
   }
 
 }

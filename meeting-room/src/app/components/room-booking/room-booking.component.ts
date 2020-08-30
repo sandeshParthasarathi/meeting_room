@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { TIME_DURATION } from 'src/app/constants/time_constants';
+import { FROM_TIME, TO_TIME } from 'src/app/constants/time_constants';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -15,8 +15,8 @@ export class RoomBookingComponent implements OnInit {
   bookingForm = this.fb.group({
     user_name: ['', Validators.required],
     date: ['', Validators.required],
-    from_time: ['', Validators.required],
-    to_time: ['', Validators.required],
+    from_time: [null, Validators.required],
+    to_time: [null, Validators.required],
     agenda: ['', Validators.required]
   });
 
@@ -31,26 +31,107 @@ export class RoomBookingComponent implements OnInit {
 
 
   minDate: Date = new Date();
-  fromTimeSpan = TIME_DURATION;
-  toTimeSpam =TIME_DURATION;
+  fromTimeSpan = FROM_TIME;
+  toTimeSpam = TO_TIME;
   isinValid: boolean = true;
+  selectedData: string; //yyyy-MM-dd
+  formInvalid: boolean = true;
+  filteredMeeting: any;
+  filteredBookedMeeting: any = [];
+  bookingdetails: any = [];
+  stausMessage: string = '- -'
 
   ngOnInit(): void {
+    this.disableDate();
+  }
+
+  // To disable previous date in calender
+  disableDate(){
+    let currentDate = new Date();
+    if(currentDate.getHours() >= 18){
+      this.minDate.setDate(currentDate.getDate() + 1)
+    }
   }
 
 //close the Modal
   closeModal(){
+    this.stausMessage = '- -'
     this.bookingForm.reset();
     this.display_dialog = false;
     this.display_dialogChange.emit(false);
   }
 
+
+ //validate from and to time
+  validateTimeDuration(){
+    let currentDate = new Date();
+    let fromTime = this.bookingForm.controls.from_time.value;
+    let toTime = this.bookingForm.controls.to_time.value;
+    if( fromTime == "0.00" || toTime == "0.00" || fromTime == null  || toTime == null || 
+        Number(fromTime) >= Number(toTime)){
+          this.formInvalid = true;
+    }
+    else if( fromTime !== "0.00" && toTime !== "0.00" && fromTime !== null  && toTime !== null &&
+          Number(fromTime) <= Number(toTime)){
+          this.formInvalid = false;
+    }
+  }
+
+  statusCheck(){
+    this.filteredBookedMeeting = [];
+    let fromTime = Number(this.bookingForm.controls.from_time.value);
+    let toTime = Number(this.bookingForm.controls.to_time.value);
+    if(this.filteredMeeting){
+      this.filteredMeeting.forEach(element => {
+        if(fromTime >= Number(element.from_time) && fromTime < Number(element.to_time)){
+          console.log('Booked', element)
+          this.filteredBookedMeeting.push(element);
+        }
+        if(toTime > Number(element.from_time) && fromTime < Number(element.to_time)){
+          console.log('Booked', element)
+          this.filteredBookedMeeting.push(element);
+        }
+      });
+    }
+    this.uniqueBooking(this.filteredBookedMeeting)
+  }
+
+  // filter the unique bookings
+  uniqueBooking(array){
+    let unique =[...new Set(array.map((item) => item.from_time))] 
+      this.bookingdetails = []
+      unique.forEach((ele) => {
+        let res;
+        array.forEach((item) => {
+          if(item.from_time == ele){
+            res = item;
+          }
+        })
+        this.bookingdetails.push(res)
+      })
+      console.log(this.bookingdetails)
+
+      this.stausMessage = this.bookingdetails.length > 0 ? 
+                          `${this.bookingdetails.length} meeting scheduled` : "Available"
+  }
+
+  // filter the schedule based on selected date
+  filterDateSchedule(){
+    let selectedDate = this.bookingForm.controls.date.value;
+    this.filteredMeeting = this.roomBookingInfo.booking_details.filter((meeting) => meeting.date == selectedDate);
+    this.statusCheck();
+  }
+
 //on submit the booking form
   onSubmit(form: FormGroup){
-    form.value.from_time = Number(form.value.from_time)
-    form.value.to_time = Number(form.value.to_time)
-    this.roomBookingInfo.booking_details.push(form.value);
-    this.closeModal()
+    //todo: validate time-slot by using timestamp
+
+    if(!this.formInvalid){
+      form.value.from_time = Number(form.value.from_time).toFixed(2);
+      form.value.to_time = Number(form.value.to_time).toFixed(2);
+      this.roomBookingInfo.booking_details.push(form.value);
+      this.closeModal();
+    }
   }
 
 }
