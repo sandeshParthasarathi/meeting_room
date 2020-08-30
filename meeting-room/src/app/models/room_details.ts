@@ -1,8 +1,9 @@
 export interface room_details {
+    room_id?: string
     room_name: string,
     room_location: string,
     room_capacity: number,
-    room_status: string,
+    room_status?: string,
     booking_details: any[]
 }
 

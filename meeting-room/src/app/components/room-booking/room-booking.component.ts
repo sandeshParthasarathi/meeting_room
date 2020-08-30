@@ -84,11 +84,9 @@ export class RoomBookingComponent implements OnInit {
     if(this.filteredMeeting){
       this.filteredMeeting.forEach(element => {
         if(fromTime >= Number(element.from_time) && fromTime < Number(element.to_time)){
-          console.log('Booked', element)
           this.filteredBookedMeeting.push(element);
         }
         if(toTime > Number(element.from_time) && fromTime < Number(element.to_time)){
-          console.log('Booked', element)
           this.filteredBookedMeeting.push(element);
         }
       });
@@ -107,9 +105,11 @@ export class RoomBookingComponent implements OnInit {
             res = item;
           }
         })
-        this.bookingdetails.push(res)
+        this.bookingdetails.push(res);
       })
-      console.log(this.bookingdetails)
+
+      //sortin the booking-details
+      this.bookingdetails = this.bookingdetails?.sort((a, b) => a.from_time - b.from_time);
 
       this.stausMessage = this.bookingdetails.length > 0 ? 
                           `${this.bookingdetails.length} meeting scheduled` : "Available"

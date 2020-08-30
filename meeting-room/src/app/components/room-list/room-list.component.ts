@@ -9,7 +9,8 @@ import { room_details } from 'src/app/models/room_details';
 export class RoomListComponent implements OnInit {
 
   public roomsList: room_details[] = [
-    {
+    { 
+      room_id: "1A",
       room_name: "Room 1A",
       room_location: "1st Floor",
       room_capacity: 3,
@@ -45,6 +46,7 @@ export class RoomListComponent implements OnInit {
       ]
     },
     {
+      room_id: "1B",
       room_name: "Room 1B",
       room_location: "1st Floor",
       room_capacity: 10,
@@ -52,6 +54,7 @@ export class RoomListComponent implements OnInit {
       booking_details: []
     },
     {
+      room_id: "1C",
       room_name: "Room 1C",
       room_location: "1st Floor",
       room_capacity: 20,
@@ -59,6 +62,7 @@ export class RoomListComponent implements OnInit {
       booking_details: []
     },
     {
+      room_id: "2A",
       room_name: "Room 2A",
       room_location: "2nd Floor",
       room_capacity: 3,
@@ -66,6 +70,7 @@ export class RoomListComponent implements OnInit {
       booking_details: []
     },
     {
+      room_id: "2B",
       room_name: "Room 2B",
       room_location: "2nd Floor",
       room_capacity: 10,
@@ -73,6 +78,7 @@ export class RoomListComponent implements OnInit {
       booking_details: []
     },
     {
+      room_id: "2C",
       room_name: "Room 2C",
       room_location: "2nd Floor",
       room_capacity: 20,
@@ -80,6 +86,7 @@ export class RoomListComponent implements OnInit {
       booking_details: []
     },
     {
+      room_id: "3A",
       room_name: "Room 3A",
       room_location: "3rd Floor",
       room_capacity: 3,
@@ -87,6 +94,7 @@ export class RoomListComponent implements OnInit {
       booking_details: []
     },
     {
+      room_id: "3B",
       room_name: "Room 3B",
       room_location: "3rd Floor",
       room_capacity: 10,
@@ -94,6 +102,7 @@ export class RoomListComponent implements OnInit {
       booking_details: []
     },
     {
+      room_id: "3C",
       room_name: "Room 3C",
       room_location: "3rd Floor",
       room_capacity: 20,
@@ -101,13 +110,14 @@ export class RoomListComponent implements OnInit {
       booking_details: []
     },
     {
+      room_id: "4A",
       room_name: "Room 4A",
       room_location: "4th Floor",
       room_capacity: 50,
       room_status: null,
       booking_details: []
     }
-] ;
+  ] ;
 
 display_dialog: boolean = false;
 details_dialog: boolean = false;

@@ -11,23 +11,51 @@
         <div class="modal-body">
             <div class="booking-body">
                 <div class="booking-room-details">
-                    <div class="room-image">
-                        <img class="img-responsive" src="../../../assets/images/roomImage.jpg" alt="img">
+                    <div class="room-info">
+                        <div class="room-details">
+                            <div class="room-seater">
+                                <div class="details-header">Location:</div> <span> {{ roomBookingInfo.room_location }}</span>
+                             </div>
+                             <div class="room-seater">
+                                 <div class="details-header">No of seats:</div> <span> {{ roomBookingInfo.room_capacity }}</span>
+                             </div>
+                             <div class="room-seater room-status">
+                                 <div class="details-header">Status:</div>
+                                 <span class="warning" [ngClass]="{'active': stausMessage === 'Available'}"> {{ stausMessage }}</span>
+                             </div>
+                        </div>
+                        <div class="room-image">
+                            <img class="img-responsive" src="../../../assets/images/roomImage.jpg" alt="img">
+                        </div>
                     </div>
-                    <div class="room-details">
-                        <div class="room-seater">
-                            <div class="details-header">Location:</div> <span> {{ roomBookingInfo.room_location }}</span>
-                         </div>
-                         <div class="room-seater">
-                             <div class="details-header">No of seats:</div> <span> {{ roomBookingInfo.room_capacity }}</span>
-                         </div>
-                         <div class="room-seater room-status">
-                             <div class="details-header">Status:</div>
-                             <span class="warning" [ngClass]="{'active': stausMessage === 'Available'}"> {{ stausMessage }}</span>
-                         </div>
-                    </div>
-                    <div class="time-slots">
-
+                    <div class="time-slots" *ngIf="bookingdetails.length > 0">
+                        <div class="scheduled-meeting-details">
+                            Scheduled Meeting List:
+                        </div>
+                        <div class="meeting-widget" *ngFor="let widget of bookingdetails; index as i">
+                            <div class="widget-body">
+                                <div class="widget-left">
+                                    <div class="room-seater">
+                                        <div class="details-header">User :</div> 
+                                        <span> {{ widget.user_name }}</span>
+                                     </div>
+                                     <div class="room-seater">
+                                        <div class="details-header">Meeting Date:</div> 
+                                        <span> {{ widget.date }}</span>
+                                     </div>
+                                     <div class="room-seater time-slot">
+                                        <div class="details-header">Meeting Duration:</div> 
+                                        <span class="time-gap"> {{ widget.from_time }} to {{ widget.to_time}}</span>
+                                     </div>
+                                </div>
+                                <div class="widget-middle">
+                                    <div class="agenda-seater">
+                                        <div class="details-header">Meeting Agenda:</div> 
+                                        <span> {{ widget.agenda }}</span>
+                                     </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="booking-form">

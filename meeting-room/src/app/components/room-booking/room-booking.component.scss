@@ -1,59 +1,143 @@
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .booking-section{
-   width: 750px;
+   width: 850px;
 
   .modal-body{
     
     .booking-body{
       display: grid;
-      grid-template-columns: 40% 60%;    
+      grid-template-columns: 55% 45%;    
 
       .booking-room-details{
-        .room-image{
-          width: 100%;
-          height: 160px;
+        border-right: 1px solid #9999995e;
+        padding-right: 10px;
+
+        .room-info{
+          display: grid;
+          grid-template-columns: auto 40%;  
           margin-bottom: 15px;
 
-          img{
+          .room-image{
             width: 100%;
-            height: 100%
+            height: 120px;
+  
+            img{
+              width: 100%;
+              height: 100%
+            }
+          }
+  
+          .room-details{
+            width: 200px;
+            padding: 5px;
+            margin: 0px 10px;
+  
+            .room-seater{
+                display: flex;
+                color: #7b858c;
+                line-height: 20px;  
+                width: 275px;
+  
+                .details-header{
+                    width: 100px;
+                    font-weight: 600;
+                }
+                    
+                span{
+                    color: #1E1E30;
+                }
+            }
+  
+            .room-status{
+                .warning{
+                  color: #E8511D; 
+                  font-weight: 600;
+                }
+  
+                .active{
+                    color: green; 
+                    font-weight: 600;
+                 }
+  
+            }
+            
           }
         }
 
-        .room-details{
-          width: 200px;
-          padding: 5px;
-          margin: 0px 10px;
+        .time-slots{
+          margin-right: 10px;
 
-          .room-seater{
-              display: flex;
-              color: #7b858c;
-              line-height: 20px;  
-              width: 275px;
-
-              .details-header{
-                  width: 100px;
-                  font-weight: 600;
-              }
-                  
-              span{
-                  color: #1E1E30;
-              }
+          .scheduled-meeting-details{
+            display: flex;
+            font-size: 14px;
+            font-weight: 700;
           }
 
-          .room-status{
-              .warning{
-                color: #E8511D; 
-                font-weight: 600;
-              }
+          .meeting-widget{
+            align-items: center;
+            margin: 20px 0px;
+            padding: 15px 10px;
+            box-sizing: border-box;
+            background: #FFFFFF;
+            border-left: 4px solid #636496D4;
+            border-radius: 5px;
+            box-shadow: 0 0 2px grey;
 
-              .active{
-                  color: green; 
-                  font-weight: 600;
-               }
+            .widget-body{
+                display: grid;
+                grid-template-columns: auto auto;
 
-          }
-          
+                .widget-left{
+
+                    .room-seater{
+                        display: flex;
+                        color: #7b858c;
+                        line-height: 18px;  
+    
+                        .details-header{
+                            width: 110px;
+                            font-weight: 600;
+                        }
+                            
+                        span{
+                            color: #1E1E30;
+                        }
+                    }
+
+                    .time-slot{
+                      .time-gap{
+                        color: #E8511D !important; 
+                        font-weight: 600 !important;
+                      }
+                    }
+                }
+
+                .widget-middle{
+                    color: #7b858c;
+                    line-height: 18px;
+                    margin: 0px 10px;
+
+                    .agenda-seater{
+
+                        .details-header{
+                            width: 100px;
+                            font-weight: 600;
+                        }
+                            
+                        span {
+                            color: #1E1E30;
+                        }
+                    }
+                }
+            }
+         }
         }
+
       }
 
       .booking-form{
@@ -87,4 +171,8 @@
     }
   }
 
+}
+
+.meeting-widget:hover{
+  box-shadow: 0 0 5px grey !important;
 }

@@ -100,7 +100,6 @@ button:active{
 
     .modal-section{
       width: 600px;
-      max-height: 70vh;
       overflow-y: auto;
       background: #FFFFFF;
 
@@ -126,6 +125,8 @@ button:active{
 
       .modal-body{
         padding: 10px;
+        max-height: 70vh;
+        overflow-y: auto;
       }
 
       .modal-footer{
