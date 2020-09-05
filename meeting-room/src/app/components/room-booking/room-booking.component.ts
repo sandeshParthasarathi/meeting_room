@@ -94,7 +94,7 @@ export class RoomBookingComponent implements OnInit {
       if (day.length < 2) 
           day = '0' + day;
 
-          shortDate =  [year, month, day].join('-');
+      shortDate =  [year, month, day].join('-');
       let hour = (currentDate.getHours() + (currentDate.getMinutes()/100)).toFixed(2);
 
       if(selectedDate === shortDate && (fromTime < hour)){
@@ -149,7 +149,6 @@ export class RoomBookingComponent implements OnInit {
     if(day.includes('Sat') || day.includes('Sun')){
       this.weekendFlag = true;
     }
-    console.log(day)
     this.filteredMeeting = this.roomBookingInfo.booking_details.filter((meeting) => meeting.date == selectedDate);
     this.statusCheck();
     this.validateTimeDuration();
@@ -165,4 +164,9 @@ export class RoomBookingComponent implements OnInit {
     }
   }
 
+  isFormValid(){
+    if(this.formInvalid || this.bookingdetails.length> 0 || this.weekendFlag){
+      return true;
+    }
+  }
 }

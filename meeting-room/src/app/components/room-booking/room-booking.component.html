@@ -105,7 +105,7 @@
                         <div class="footer-btn">
                             <button class="btn" (click)="closeModal()">Cancel</button>
                             <button class="btn btn-secondary" type="submit" 
-                                    [disabled]="!bookingForm.valid || formInvalid || bookingdetails.length> 0 || weekendFlag">Confirm</button>
+                                    [disabled]="!bookingForm.valid || isFormValid()">Confirm</button>
                         </div>
                     </form>
                 </div>

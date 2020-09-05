@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RoutingModule } from './routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { RoomListComponent } from './components/room-list/room-list.component';
@@ -13,6 +14,8 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { FooterComponent } from './components/footer/footer.component';
 import { ActionBarComponent } from './components/action-bar/action-bar.component';
 import { SearchPipe } from './pipe/search.pipe';
+
+import { MeetingRoomService } from './services/meeting-room.service'
 
 @NgModule({
   declarations: [
@@ -30,9 +33,10 @@ import { SearchPipe } from './pipe/search.pipe';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    RoutingModule
+    RoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [MeetingRoomService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
