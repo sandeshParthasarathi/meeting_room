@@ -1,15 +1,4 @@
-@mixin flexCenter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin error-message{
-    color: #E8511D ; 
-    font-size: 12px;
-    font-weight: 600;
-    margin-right: 20px;
-}
+@import "../../../variables.scss";
 
 .booking-section{
    width: 850px;
@@ -52,7 +41,7 @@
   
             .room-seater{
                 display: flex;
-                color: #7b858c;
+                color: $buddy-light-grey;
                 line-height: 20px;  
                 width: 275px;
   
@@ -62,18 +51,18 @@
                 }
                     
                 span{
-                    color: #1E1E30;
+                    color: $buddy-secondary-black;
                 }
             }
   
             .room-status{
                 .warning{
-                  color: #E8511D; 
+                  color: $buddy-warn; 
                   font-weight: 600;
                 }
   
                 .active{
-                    color: green; 
+                    color: $buddy-sucess; 
                     font-weight: 600;
                  }
   
@@ -96,10 +85,10 @@
             margin: 20px 0px;
             padding: 15px 10px;
             box-sizing: border-box;
-            background: #FFFFFF;
+            background: $buddy-white;
             border-left: 4px solid #636496D4;
             border-radius: 5px;
-            box-shadow: 0 0 2px grey;
+            box-shadow: $buddy-box-shadow;
 
             .widget-body{
                 display: grid;
@@ -109,7 +98,7 @@
 
                     .room-seater{
                         display: flex;
-                        color: #7b858c;
+                        color: $buddy-light-grey;
                         line-height: 18px;  
     
                         .details-header{
@@ -118,20 +107,20 @@
                         }
                             
                         span{
-                            color: #1E1E30;
+                            color: $buddy-secondary-black;
                         }
                     }
 
                     .time-slot{
                       .time-gap{
-                        color: #E8511D !important; 
+                        color: $buddy-warn !important; 
                         font-weight: 600 !important;
                       }
                     }
                 }
 
                 .widget-middle{
-                    color: #7b858c;
+                    color: $buddy-light-grey;
                     line-height: 18px;
                     margin: 0px 10px;
 
@@ -143,7 +132,7 @@
                         }
                             
                         span {
-                            color: #1E1E30;
+                            color: $buddy-secondary-black;
                         }
                     }
                 }
@@ -193,5 +182,5 @@
 }
 
 .meeting-widget:hover{
-  box-shadow: 0 0 5px grey !important;
+  box-shadow: 0 0 5px $buddy-grey !important;
 }

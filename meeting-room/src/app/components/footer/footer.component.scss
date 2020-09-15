@@ -1,8 +1,4 @@
-@mixin flexCenter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+@import "../../../variables.scss";
 
 footer{
     .footer-main{
@@ -10,8 +6,8 @@ footer{
         grid-template-columns: auto auto;
         width: 100%;
         font-size: 16px;
-        background: #1E1E30;
-        color: #6C757D;
+        background: $buddy-secondary-black;
+        color: $buddy-secondary-grey;
 
         .copy-right{
             @include flexCenter();
@@ -20,7 +16,7 @@ footer{
             a{
                 text-decoration: none;
                 font-weight: bold;
-                color: #6C757D;
+                color: $buddy-secondary-grey;
                 margin: 0px 4px
             }
         }

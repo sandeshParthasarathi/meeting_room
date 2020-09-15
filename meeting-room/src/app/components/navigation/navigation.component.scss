@@ -1,21 +1,17 @@
-@mixin flexCenter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+@import "../../../variables.scss";
 
 .navigation-header{
     .nav{  
         display: flex;
         flex-flow: row nowrap;
-        background-color: #FFFFFF;
+        background-color: $buddy-white;
         padding: 8px 16px;
-        box-shadow: 0 0 5px grey;
-        -webkit-box-shadow: 0 0 5px grey;
+        box-shadow: 0 0 5px $buddy-grey;
+        -webkit-box-shadow: 0 0 5px $buddy-grey;
     }
 
     .navbar-brand{
-        color: #19659D;
+        color: $buddy-blue;
         font-size: 20px;
         font-weight: 700;
         padding: 10px;

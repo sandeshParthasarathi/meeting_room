@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import "variables.scss";
+
 * {
     box-sizing: border-box;
 }
@@ -7,8 +9,8 @@ body{
     padding: 0px;
     margin: 0px;
     font-size: 12px;
-    background: #f8f9fa;
-    font-family: 'Roboto', sans-serif;
+    background: $background-color;
+    font-family: $font-family;
 }
 
 //cloned from Angular material
@@ -41,18 +43,18 @@ button:active{
 }
 
 .btn-primary{
-    background-color: #19659D;
-    color: #FFFFFF;
+    background-color: $buddy-blue;
+    color: $buddy-white;
 }
 
 .btn-secondary{
-  background-color: #5cb85c;
-  color: #FFFFFF;
+  background-color: $buddy-sucess;
+  color: $buddy-white;
 }
 
 .btn-warnig{
-  background-color: #E8511D;
-  color: #000000;
+  background-color: $buddy-warn;
+  color: $buddy-black;
 }
 
 
@@ -79,7 +81,7 @@ button:active{
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #19659D;
+    background: $buddy-blue;
     border-radius: 4px;
   }
 
@@ -101,17 +103,17 @@ button:active{
     .modal-section{
       width: 600px;
       overflow-y: auto;
-      background: #FFFFFF;
+      background: $buddy-white;
 
       .modal-header{
         display: flex;
         justify-content: space-between;
         padding: 15px 10px;
-        color: #19659D;
+        color: $buddy-blue;
         font-size: 14px;
         font-weight: 600;
-        box-shadow: 0 0 2px grey;
-        -webkit-box-shadow: 0 0 2px grey;
+        box-shadow: $buddy-box-shadow;
+        -webkit-box-shadow: $buddy-box-shadow;
       
         .close-icon{
           img {

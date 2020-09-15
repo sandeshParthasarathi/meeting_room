@@ -1,8 +1,4 @@
-@mixin flexCenter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+@import "../../../variables.scss";
 
 .room-lists{
     height: calc(100vh - 140px);
@@ -19,9 +15,9 @@
         .room-block{
             display: flex;
             border: 1px solid #e0e0e0;
-            background-color: #FFFFFF;
-            box-shadow: 0 0 2px grey;
-            -webkit-box-shadow: 0 0 2px grey;
+            background-color: $buddy-white;
+            box-shadow: $buddy-box-shadow;
+            -webkit-box-shadow: $buddy-box-shadow;
             margin: 20px 10px;
     
             .room-image{
@@ -42,13 +38,13 @@
                     font-size: 14px;
                     font-weight: 700;
                     text-align: center;
-                    color: #1E1E30;
+                    color: $buddy-secondary-black;
                     margin-bottom: 10px;
                 }
 
                 .room-seater{
                     display: flex;
-                    color: #7b858c;
+                    color: $buddy-light-grey;
                     line-height: 18px;  
 
                     .details-header{
@@ -57,13 +53,13 @@
                     }
                         
                     span{
-                        color: #1E1E30;
+                        color: $buddy-secondary-black;
                     }
                 }
 
                 .room-status{
                     .active{
-                        color: green; 
+                        color: $buddy-sucess; 
                         font-weight: 600;
                      }
                 }

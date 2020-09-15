@@ -12,6 +12,7 @@ export class MeetingRoomService {
     private http: HttpClient,
   ) { }
 
+  //calling data from mock-json
   getMeetingRoomList(): Observable<room_details>{
     return this.http.get(`../../assets/mock.json`);
   }

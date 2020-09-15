@@ -1,0 +1,29 @@
+$buddy-blue: #19659D;
+$buddy-white: #FFFFFF;
+$buddy-black: #000000;
+$buddy-secondary-black: #1E1E30;
+$buddy-sucess: #5cb85c;
+$buddy-warn: #E8511D;
+$buddy-grey: grey;
+$buddy-light-grey: #7b858c;
+$background-color: #f8f9fa;
+$buddy-secondary-grey: #7b858c;
+$buddy-light-purple: #636496D4;
+$buddy-box-shadow: 0 0 2px $buddy-grey;
+
+
+
+$font-family: 'Roboto', sans-serif;
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin error-message{
+    color: $buddy-warn ; 
+    font-size: 12px;
+    font-weight: 600;
+    margin-right: 20px;
+}

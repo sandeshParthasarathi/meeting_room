@@ -1,15 +1,11 @@
-@mixin flexCenter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+@import "../../../variables.scss";
 
 .manage-meeting{
     width: 750px !important;
 
     .modal-header{
         .custom-header{
-            color: #000000;
+            color: $buddy-black;
         }
     } 
     
@@ -26,10 +22,10 @@
                 margin: 20px 0px;
                 padding: 15px 10px;
                 box-sizing: border-box;
-                background: #FFFFFF;
-                border-left: 4px solid #636496D4;
+                background: $buddy-white;
+                border-left: 4px solid $buddy-light-purple;
                 border-radius: 5px;
-                box-shadow: 0 0 2px grey;
+                box-shadow: $buddy-box-shadow;
     
                 .widget-body{
                     display: grid;
@@ -39,7 +35,7 @@
     
                         .room-seater{
                             display: flex;
-                            color: #7b858c;
+                            color: $buddy-light-grey;
                             line-height: 18px;  
         
                             .details-header{
@@ -48,13 +44,13 @@
                             }
                                 
                             span{
-                                color: #1E1E30;
+                                color: $buddy-secondary-black;
                             }
                         }
                     }
     
                     .widget-middle{
-                        color: #7b858c;
+                        color: $buddy-light-grey;
                         line-height: 18px;
                         margin: 0px 10px;
     
@@ -66,14 +62,14 @@
                             }
                                 
                             span {
-                                color: #1E1E30;
+                                color: $buddy-secondary-black;
                             }
                         }
                     }
     
                     .widget-action{
                         @include flexCenter();
-                        color: #7b858c;
+                        color: $buddy-light-grey;
                         line-height: 18px;
                         
     
@@ -109,5 +105,5 @@
 }
 
 .meeting-widget:hover{
-    box-shadow: 0 0 5px grey !important;
+    box-shadow: 0 0 5px $buddy-grey !important;
 }
